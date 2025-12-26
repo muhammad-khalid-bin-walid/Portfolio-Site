@@ -1,319 +1,1056 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MD.Khalid Bin Walid Hasan Sikto's Portfolio </title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MD.KHALID BIN WALID HASAN SIKTO | Red Team Analyst</title>
+  <meta name="description" content="Junior Red Team Analyst | Ethical Hacker | Exploit Engineer | Penetration Tester | Cybersecurity Specialist"/>
+  <meta name="theme-color" content="#ff0044"/>
+  
+  <!-- Preload Critical Resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Roboto+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind + Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  
+  <!-- Optimized Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Orbitron', 'sans-serif'],
+            mono: ['Roboto Mono', 'monospace'],
+          },
+          colors: {
+            neon: '#00ffff',
+            redteam: '#ff0044',
+            cyber: '#00ff9d',
+            darkbg: '#0a0a0a',
+            lightbg: '#f8f9fa',
+            glass: 'rgba(10, 10, 15, 0.6)',
+            lightglass: 'rgba(255, 255, 255, 0.12)',
+          },
+          animation: {
+            'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+            'scan': 'scan 3s linear infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'tilt': 'tilt 8s infinite linear',
+            'matrix': 'matrix 25s linear infinite',
+          },
+          keyframes: {
+            'pulse-glow': {
+              '0%, 100%': { boxShadow: '0 0 15px #00ffff40, 0 0 30px #ff004430' },
+              '50%': { boxShadow: '0 0 25px #ff004460, 0 0 50px #00ffff50' },
+            },
+            scan: { '0%': { transform: 'translateY(-100%)' }, '100%': { transform: 'translateY(100%)' } },
+            float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-12px)' } },
+            tilt: { '0%': { transform: 'perspective(1000px) rotateX(0) rotateY(0)' }, '50%': { transform: 'perspective(1000px) rotateX(4deg) rotateY(-4deg)' }, '100%': { transform: 'perspective(1000px) rotateX(0) rotateY(0)' } },
+            matrix: { '0%': { backgroundPosition: '0 0' }, '100%': { backgroundPosition: '0 100%' } }
+          },
+          backgroundImage: {
+            'matrix': 'repeating-linear-gradient(0deg, transparent 0px, #00ffff04 1px, transparent 2px, transparent 3px)'
+          }
         }
-        /* Animation for project cards */
-        .project-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        /* Fade-in animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-            z-index: 20;
-        }
-        .modal-content {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            width: 90%;
-            max-width: 500px;
-        }
-        .dark .modal-content {
-            background: #1f2937;
-            color: #f9fafb;
-        }
-    </style>
+      }
+    }
+  </script>
+
+  <!-- Optimized CSS -->
+  <style>
+    :root { --scroll-behavior: smooth; --neon: #00ffff; --redteam: #ff0044; --cyber: #00ff9d; }
+    html { scroll-behavior: smooth; }
+    * { box-sizing: border-box; }
+    
+    /* Performance */
+    img { image-rendering: -webkit-optimize-contrast; }
+    .will-change { will-change: transform; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: #ff0044; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #ff3366; }
+
+    /* Glassmorphism */
+    .glass { backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+    .dark .glass { background: rgba(10,10,15,0.65); border: 1px solid rgba(255,0,68,0.3); }
+    .light .glass { background: rgba(255,255,255,0.12); border: 1px solid rgba(0,0,0,0.1); }
+
+    /* 3D Cards */
+    .card-3d { transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-style: preserve-3d; }
+    .card-3d:hover { transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) scale(1.03); }
+
+    /* Matrix Background */
+    .matrix-bg {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+      background: #000; opacity: 0.04; animation: matrix 25s linear infinite;
+      background-image: var(--matrix-bg);
+    }
+    .light .matrix-bg { opacity: 0.02; --matrix-bg: repeating-linear-gradient(0deg, transparent 0px, #ff004408 1px, transparent 2px, transparent 3px); }
+
+    /* Scanline */
+    .scanline {
+      position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+      background: linear-gradient(90deg, transparent, #00ffff, transparent);
+      opacity: 0.25; animation: scan 3s linear infinite; pointer-events: none;
+    }
+
+    /* Fade In */
+    .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* Neon Text */
+    .neon-text { text-shadow: 0 0 8px currentColor, 0 0 16px currentColor; }
+    .light .neon-text { text-shadow: 0 0 4px currentColor; }
+    /* Neon glow helper */
+    .neon-glow { box-shadow: 0 0 12px rgba(0,255,255,0.08), 0 0 24px rgba(255,0,68,0.06); }
+    .neon-glow i { transition: transform .2s ease; }
+
+    /* Progress bars */
+    .progress { width: 100%; background: rgba(15,15,15,0.6); border-radius: 9999px; height: 0.5rem; overflow: hidden; }
+    .progress-fill { height:100%; width:0%; transition: width 1100ms cubic-bezier(.22,.9,.3,1); }
+    .progress .progress-fill.bg-redteam { background: linear-gradient(90deg, var(--redteam), var(--neon)); }
+    .progress .progress-fill.bg-neon { background: linear-gradient(90deg, var(--neon), var(--cyber)); }
+    .progress .progress-fill.bg-cyber { background: linear-gradient(90deg, var(--cyber), var(--neon)); }
+    .progress-label { font-size: .75rem; color: #cbd5e1; }
+
+    /* Keyboard focus for cards */
+    .card-3d[tabindex] { outline: none; }
+    .card-3d[tabindex]:focus { box-shadow: 0 0 0 4px rgba(0,255,255,0.06), 0 10px 30px rgba(0,0,0,0.6); transform: translateY(-6px) scale(1.02); }
+
+    /* Skills badges and filters */
+    .skills-controls { display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:center; margin-bottom:1rem; }
+    .skills-filter { background:rgba(255,255,255,0.03); color:#cbd5e1; padding:0.4rem 0.7rem; border-radius:9999px; font-size:0.85rem; cursor:pointer; border:1px solid rgba(255,255,255,0.03); }
+    .skills-filter[aria-pressed="true"] { background:linear-gradient(90deg,var(--redteam),var(--neon)); color:#081018; border-color: rgba(255,255,255,0.06); }
+    .skills-search { width:100%; max-width:420px; margin:0 auto 1rem; display:block; }
+    .skill-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:0.6rem; }
+    @media(min-width:768px){ .skill-grid { grid-template-columns:repeat(4,1fr); } }
+    .skill-badge { display:inline-flex; align-items:center; gap:0.5rem; padding:0.6rem 0.8rem; background:rgba(255,255,255,0.03); color:#e6eef6; border-radius:999px; cursor:pointer; border:1px solid rgba(255,255,255,0.03); font-size:0.85rem; }
+    .skill-badge:focus { outline:none; box-shadow:0 8px 20px rgba(0,0,0,0.6), 0 0 0 4px rgba(0,255,255,0.04); transform:translateY(-3px); }
+    .skill-badge:hover { transform:translateY(-3px); }
+    .skill-meta { font-size:0.72rem; color:#94a3b8; }
+
+    /* Toast */
+    .toast { position:fixed; right:20px; bottom:20px; background:rgba(0,0,0,0.8); color:#fff; padding:10px 14px; border-radius:8px; z-index:60; display:none; box-shadow:0 8px 30px rgba(0,0,0,0.6); }
+    /* Contact improvements */
+    .contact-card { display:flex; gap:0.75rem; align-items:flex-start; padding:1rem; border-radius:12px; }
+    .contact-card .meta { display:flex; gap:0.75rem; align-items:center; }
+    .copy-btn { background:transparent; border:1px solid rgba(255,255,255,0.06); color:#cbd5e1; padding:0.35rem 0.5rem; border-radius:8px; cursor:pointer; font-size:0.85rem; }
+    .copy-btn:hover { background:rgba(255,255,255,0.02); }
+    .contact-form .form-row { margin-bottom:0.75rem; }
+    .contact-form label { display:block; font-size:0.75rem; color:#9fb0bf; margin-bottom:0.25rem; }
+    .contact-form input, .contact-form textarea { width:100%; padding:0.8rem; background:rgba(0,0,0,0.55); border:1px solid rgba(255,255,255,0.04); border-radius:10px; color:#e6eef6; }
+    .contact-actions { display:flex; gap:0.6rem; margin-top:0.5rem; }
+    .resume-btn { background:linear-gradient(90deg,var(--redteam),var(--neon)); color:#061018; padding:0.6rem 0.9rem; border-radius:10px; font-weight:600; }
+  </style>
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
-    <!-- Navigation Bar -->
-    <nav class="bg-white dark:bg-gray-800 shadow-md fixed w-full z-10">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold">MD.Khalid Bin Walid Hasan Sikto</a>
-            <div class="space-x-4">
-                <a href="#home" class="hover:text-blue-500">Home</a>
-                <a href="#about" class="hover:text-blue-500">About</a>
-                <a href="#projects" class="hover:text-blue-500">Projects</a>
-                <a href="#skills" class="hover:text-blue-500">Skills</a>
-                <a href="#contact" class="hover:text-blue-500">Contact</a>
-                <button id="theme-toggle" class="focus:outline-none">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
+<body class="bg-darkbg text-gray-100 min-h-screen overflow-x-hidden relative transition-colors duration-500 dark">
 
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-5xl font-bold mb-4 fade-in">Welcome to My Portfolio</h1>
-            <p class="text-xl mb-6 fade-in">I am MD.Khalid Bin Walid Hasan Sikto. I am a Junior Pentester and a Junior Red team analyst </p>
-            <a href="#contact" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 fade-in">Get in Touch</a>
-        </div>
-    </section>
+  <!-- Performance: Matrix + Scanline -->
+  <div class="matrix-bg"></div>
+  <div class="scanline"></div>
 
-    <!-- About Section -->
-    <section id="about" class="py-20">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-10 fade-in">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center">
-                <img src="https://via.placeholder.com/300" alt="Profile" class="w-64 h-64 rounded-full mb-6 md:mb-0 md:mr-10 fade-in">
-                <div class="text-lg fade-in">
-                    <p>I am a Junior Pentester and Red Team Analyst focusing on adversary simulation, exploit development, and deep reconnaissance. I build modular toolchains, breach hardened surfaces, and deliver actionable intelligence. Precision over noise, discipline over hype.</p>
-                    <p class="mt-4">My goal is to master offensive and defensive security at scale, and lead high-impact red team operations across critical infrastructure.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Theme Toggle -->
+  <button id="theme-toggle" class="fixed top-6 right-6 z-50 w-12 h-12 rounded-full glass flex items-center justify-center neon-glow card-3d transition-all hover:scale-110" aria-label="Toggle Theme">
+    <i class="fas fa-moon text-lg text-neon"></i>
+  </button>
 
-    <!-- Projects Section -->
-<section id="projects" class="py-20 bg-gray-200 dark:bg-gray-800">
-    <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center mb-10 fade-in">My Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="project-card bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 fade-in" data-project-id="1">
-                <img src="https://via.placeholder.com/300x200" alt="Project 1" class="w-full h-48 object-cover rounded-t-lg">
-                <h3 class="text-xl font-semibold mt-4 project-title">TBA</h3>
-                <p class="mt-2 project-description">Details coming soon.</p>
-                <div class="mt-4 flex space-x-4">
-                    <a href="#" class="text-blue-500">View Project</a>
-                    <button class="edit-project text-blue-500 hover:underline" data-project-id="1">Edit</button>
-                </div>
-            </div>
-            <div class="project-card bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 fade-in" data-project-id="2">
-                <img src="https://via.placeholder.com/300x200" alt="Project 2" class="w-full h-48 object-cover rounded-t-lg">
-                <h3 class="text-xl font-semibold mt-4 project-title">TBA</h3>
-                <p class="mt-2 project-description">Details coming soon.</p>
-                <div class="mt-4 flex space-x-4">
-                    <a href="#" class="text-blue-500">View Project</a>
-                    <button class="edit-project text-blue-500 hover:underline" data-project-id="2">Edit</button>
-                </div>
-            </div>
-            <div class="project-card bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 fade-in" data-project-id="3">
-                <img src="https://via.placeholder.com/300x200" alt="Project 3" class="w-full h-48 object-cover rounded-t-lg">
-                <h3 class="text-xl font-semibold mt-4 project-title">TBA</h3>
-                <p class="mt-2 project-description">Details coming soon.</p>
-                <div class="mt-4 flex space-x-4">
-                    <a href="#" class="text-blue-500">View Project</a>
-                    <button class="edit-project text-blue-500 hover:underline" data-project-id="3">Edit</button>
-                </div>
-            </div>
-        </div>
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-40 glass backdrop-blur-xl border-b border-redteam/30 transition-all">
+    <div class="container mx-auto px-5 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl md:text-3xl font-bold font-heading tracking-wider neon-text text-neon animate-pulse">KHALID.SIKTO</a>
+      <div class="hidden md:flex items-center space-x-8 font-mono text-sm">
+        <a href="#home" class="hover:text-redteam transition neon-text">HOME</a>
+        <a href="#about" class="hover:text-redteam transition neon-text">ABOUT</a>
+        <a href="#experience" class="hover:text-redteam transition neon-text">EXPERIENCE</a>
+        <a href="#education" class="hover:text-redteam transition neon-text">EDUCATION</a>
+        <a href="#certifications" class="hover:text-redteam transition neon-text">CERTS</a>
+        <a href="#projects" class="hover:text-redteam transition neon-text">PROJECTS</a>
+        <a href="#skills" class="hover:text-redteam transition neon-text">SKILLS</a>
+        <a href="#contact" class="hover:text-redteam transition neon-text">CONTACT</a>
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden text-xl">
+        <i class="fas fa-bars text-neon"></i>
+      </button>
     </div>
-</section>
+  </nav>
 
- <!-- Skills Section -->
-<section id="skills" class="py-20">
-    <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center mb-10 fade-in">My Skills</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <!-- Offensive Security -->
-            <div class="text-center fade-in">
-                <i class="fas fa-bug text-4xl text-red-600"></i>
-                <p class="mt-2">Web App Pentesting</p>
-            </div>
-            <div class="text-center fade-in">
-                <i class="fas fa-user-secret text-4xl text-gray-700"></i>
-                <p class="mt-2">Red Team Operations</p>
-            </div>
-            <div class="text-center fade-in">
-                <i class="fas fa-terminal text-4xl text-green-500"></i>
-                <p class="mt-2">Exploit Development</p>
-            </div>
-            <div class="text-center fade-in">
-                <i class="fas fa-network-wired text-4xl text-purple-500"></i>
-                <p class="mt-2">Network Recon & Enumeration</p>
-            </div>
-            <div class="text-center fade-in">
-                <i class="fas fa-crosshairs text-4xl text-red-500"></i>
-                <p class="mt-2">VAPT</p>
-            </div>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" aria-hidden="true" class="fixed inset-0 bg-black/95 z-40 hidden flex-col items-center justify-center space-y-6 text-xl font-mono">
+    <button id="close-menu" class="absolute top-8 right-8 text-2xl text-neon">
+      <i class="fas fa-times"></i>
+    </button>
+    <a href="#home" class="neon-text text-neon">HOME</a>
+    <a href="#about" class="neon-text text-neon">ABOUT</a>
+    <a href="#experience" class="neon-text text-neon">EXPERIENCE</a>
+    <a href="#education" class="neon-text text-neon">EDUCATION</a>
+    <a href="#certifications" class="neon-text text-neon">CERTS</a>
+    <a href="#projects" class="neon-text text-neon">PROJECTS</a>
+    <a href="#skills" class="neon-text text-neon">SKILLS</a>
+    <a href="#contact" class="neon-text text-neon">CONTACT</a>
+  </div>
 
-            <!-- Recon & Toolchains -->
-            <div class="text-center fade-in">
-                <i class="fas fa-search text-4xl text-blue-600"></i>
-                <p class="mt-2">Modular Recon Pipelines</p>
-            </div>
-            <div class="text-center fade-in">
-                <i class="fas fa-tools text-4xl text-yellow-600"></i>
-                <p class="mt-2">Toolchain Engineering</p>
-            </div>
-            <div class="text-center fade-in">
-                <i class="fas fa-eye text-4xl text-indigo-500"></i>
-                <p class="mt-2">OSINT Extraction</p>
-            </div>
-            <div class="text-center fade-in">
-                <i class="fas fa-code text-4xl text-teal-500"></i>
-                <p class="mt-2">Scripting (Python, Bash)</p>
-            </div>
-
-            <!-- Defensive & Infrastructure -->
-            <div class="text-center fade-in">
-                <i class="fas fa-shield-alt text-4xl text-gray-600"></i>
-                <p class="mt-2">Defensive Security</p>
-            </div>
-            <div class="text-center fade-in">
-                <i class="fas fa-server text-4xl text-orange-600"></i>
-                <p class="mt-2">Infrastructure Hardening</p>
-            </div>
-            <div class="text-center fade-in">
-                <i class="fas fa-lock text-4xl text-pink-500"></i>
-                <p class="mt-2">Access Control & Privilege Escalation</p>
-            </div>
-            <div class="text-center fade-in">
-                <i class="fas fa-laptop-code text-4xl text-blue-400"></i>
-                <p class="mt-2">Threat Analysis & Reporting</p>
-            </div>
-        </div>
+  <!-- Hero -->
+  <section id="home" class="min-h-screen flex items-center justify-center relative pt-20">
+    <div class="container mx-auto px-5 text-center">
+      <div class="mb-8 fade-in">
+        <img src="https://scontent.frjh5-1.fna.fbcdn.net/v/t39.30808-6/544875480_1349874449855365_2948520294052625881_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=4oALF68ijC8Q7kNvwFT3TGz&_nc_oc=AdnocYktifVgXo2harAraxU_ZQ3HkIdQnno39cLNoodgG4hrsg951xy-WLAbGjo07ak&_nc_zt=23&_nc_ht=scontent.frjh5-1.fna&_nc_gid=9ZCCdrr-yyv_xQ9lUFJ--w&oh=00_Afg83mk_-iGpqfK9hAkgCE3sCxY778qPWMD4D9Duxfd_1Q&oe=690EB50F" 
+             alt="Khalid Bin Walid" 
+             class="w-40 h-40 md:w-48 md:h-48 mx-auto rounded-full border-4 border-neon shadow-2xl animate-float card-3d" loading="lazy" />
+      </div>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold font-heading mb-4 leading-tight fade-in">
+        <span class="block neon-text text-transparent bg-clip-text bg-gradient-to-r from-redteam via-neon to-redteam">
+          MD.KHALID BIN WALID HASAN SIKTO
+        </span>
+      </h1>
+      <p class="text-lg md:text-2xl font-mono text-cyan-300 mb-8 fade-in neon-text">
+        Junior Red Team Analyst • Ethical Hacker • Exploit Engineer • Penetration Tester
+      </p>
+      <div class="flex justify-center space-x-5 mb-10 fade-in">
+        <a href="https://github.com/muhammad-khalid-bin-walid" target="_blank" class="text-2xl md:text-3xl neon-text text-neon hover:text-redteam transition card-3d p-2">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/muhammad-khalid-bin-walid-/" target="_blank" class="text-2xl md:text-3xl neon-text text-neon hover:text-redteam transition card-3d p-2">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://x.com/the_real_walid" target="_blank" class="text-2xl md:text-3xl neon-text text-neon hover:text-redteam transition card-3d p-2">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+      <a href="#contact" class="inline-block px-8 py-4 bg-gradient-to-r from-redteam to-pink-600 text-white font-bold rounded-full hover:shadow-2xl transition transform hover:scale-105 fade-in text-base md:text-lg tracking-wider card-3d">
+        INITIATE CONTACT
+      </a>
     </div>
-</section>
+  </section>
 
-<!-- Contact Section -->
-<section id="contact" class="py-20 bg-gray-200 dark:bg-gray-800">
-    <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center mb-10 fade-in">Contact Me</h2>
-        <div class="max-w-xl mx-auto">
-            <div class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-xl fade-in">
-                <form action="/your-form-endpoint" method="POST">
-                    <div class="mb-6">
-                        <label for="name" class="block text-sm font-semibold text-gray-700 dark:text-gray-300">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your name" required class="w-full p-3 mt-2 border border-gray-300 rounded-lg dark:bg-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <div class="mb-6">
-                        <label for="email" class="block text-sm font-semibold text-gray-700 dark:text-gray-300">Email</label>
-                        <input type="email" id="email" name="email" placeholder="you@example.com" required class="w-full p-3 mt-2 border border-gray-300 rounded-lg dark:bg-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <div class="mb-6">
-                        <label for="message" class="block text-sm font-semibold text-gray-700 dark:text-gray-300">Message</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Feel free to reach out regarding collaboration, security assessments, or tactical engagements." required class="w-full p-3 mt-2 border border-gray-300 rounded-lg dark:bg-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3 rounded-full hover:bg-blue-700 transition duration-200">
-                        Send Message
-                    </button>
-                </form>
-            </div>
+  <!-- About -->
+  <section id="about" class="py-24 md:py-32">
+    <div class="container mx-auto px-5">
+      <h2 class="text-4xl md:text-6xl font-bold text-center mb-16 md:mb-20 font-heading neon-text text-transparent bg-clip-text bg-gradient-to-r from-redteam to-neon fade-in">
+        TARGET ACQUIRED
+      </h2>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="fade-in">
+          <div class="glass p-8 md:p-10 rounded-3xl border border-redteam/30">
+            <p class="text-base md:text-lg font-mono leading-relaxed text-gray-300">
+              I'm a <span class="text-redteam font-bold">passionate Junior Red Teamer</span> with a drive for uncovering vulnerabilities and strengthening cybersecurity defenses. My focus is on simulating real-world attacks to identify weaknesses in systems, networks, and applications, helping organizations stay one step ahead of potential threats.
+            </p>
+            <p class="text-base md:text-lg font-mono leading-relaxed text-gray-300 mt-5">
+              With a solid foundation in <span class="text-neon font-bold">penetration testing, threat analysis, and ethical hacking</span>, I thrive on the challenge of thinking like an adversary while contributing to a safer digital environment. Always learning and adapting, I'm excited to grow my skills and make a meaningful impact in the cybersecurity world.
+            </p>
+          </div>
         </div>
+        <div class="fade-in">
+          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&h=600&fit=crop" alt="Red Team Operation" class="rounded-2xl w-full border-2 border-neon shadow-2xl card-3d" loading="lazy" />
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-
-     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2025 MD.Khalid Bin Walid Hasan Sikto. All rights reserved.</p>
-            <div class="mt-4 space-x-4">
-                <a href="https://github.com/muhammad-khalid-bin-walid" class="hover:text-blue-400"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/muhamm
-ad-khalid-bin-walid-/" class="hover:text-blue-400"><i class="fab fa-linkedin"></i></a>
-                <a href="https://x.com/the_real_walid" class="hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+  <!-- Experience -->
+  <section id="experience" class="py-24 md:py-32 bg-gradient-to-b from-transparent to-redteam/5">
+    <div class="container mx-auto px-5">
+      <h2 class="text-4xl md:text-6xl font-bold text-center mb-16 md:mb-20 font-heading neon-text text-transparent bg-clip-text bg-gradient-to-r from-neon to-redteam fade-in">
+        OPS TIMELINE
+      </h2>
+      <div class="relative max-w-4xl mx-auto">
+        <div class="absolute top-0 bottom-0 left-1/2 w-0.5 bg-gradient-to-b from-redteam via-neon to-redteam opacity-50"></div>
+        <!-- Current Role -->
+        <div class="relative mb-20 fade-in">
+          <div class="absolute top-6 left-1/2 w-5 h-5 bg-darkbg border-4 border-redteam rounded-full transform -translate-x-1/2 shadow-lg shadow-redteam/50"></div>
+          <div class="ml-12 md:ml-0 md:w-5/12 md:ml-auto">
+            <div class="glass p-6 md:p-8 rounded-2xl border border-redteam/30 ml-12 md:ml-0">
+              <div class="flex justify-between items-start mb-3">
+                <div>
+                  <h3 class="text-xl md:text-2xl font-bold text-redteam">Junior Red Team Analyst</h3>
+                  <p class="text-sm text-neon font-mono">Byte Capsule</p>
+                </div>
+                <span class="text-xs font-mono text-cyan-400 bg-black/50 px-2 py-1 rounded">SEP 13, 2025 – PRESENT</span>
+              </div>
+              <ul class="space-y-1.5 text-sm font-mono text-gray-300">
+                <li class="flex items-start"><i class="fas fa-chess-knight text-redteam mr-2 mt-0.5"></i> Conducted penetration testing and simulated cyber attacks to identify and mitigate vulnerabilities in organizational systems.</li>
+                <li class="flex items-start"><i class="fas fa-chess-knight text-redteam mr-2 mt-0.5"></i> Performed threat modeling and risk assessments to prioritize security improvements.</li>
+                <li class="flex items-start"><i class="fas fa-chess-knight text-redteam mr-2 mt-0.5"></i> Collaborated with blue teams to remediate vulnerabilities and enhance system defenses.</li>
+                <li class="flex items-start"><i class="fas fa-chess-knight text-redteam mr-2 mt-0.5"></i> Documented findings and provided detailed reports with actionable recommendations for stakeholders.</li>
+              </ul>
             </div>
-            <div class="mt-4">
-                <a href="https://drive.google.com/file/d/1wgwtoQK4bOj0g5begWJ_z1fVk62fRFQN/view?usp=sharing" download class="bg-blue-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-600 inline-flex items-center">
-                    <i class="fas fa-download mr-2"></i> Download Resume
-                </a>
-            </div>
+          </div>
         </div>
-    </footer>
+        <!-- Previous Role -->
+        <div class="relative fade-in">
+          <div class="absolute top-6 left-1/2 w-5 h-5 bg-darkbg border-4 border-redteam rounded-full transform -translate-x-1/2 shadow-lg shadow-redteam/50"></div>
+          <div class="mr-12 md:mr-0 md:w-5/12">
+            <div class="glass p-6 md:p-8 rounded-2xl border border-redteam/30 mr-12 md:mr-0">
+              <div class="flex justify-between items-start mb-3">
+                <div>
+                  <h3 class="text-xl md:text-2xl font-bold text-redteam">Junior Pentester</h3>
+                  <p class="text-sm text-neon font-mono">Byte Capsule</p>
+                </div>
+                <span class="text-xs font-mono text-cyan-400 bg-black/50 px-2 py-1 rounded">JUL 2024 – OCT 2024</span>
+              </div>
+              <ul class="space-y-1.5 text-sm font-mono text-gray-300">
+                <li class="flex items-start"><i class="fas fa-chess-knight text-redteam mr-2 mt-0.5"></i> Conducted penetration testing to identify and exploit vulnerabilities in networks, applications, and systems.</li>
+                <li class="flex items-start"><i class="fas fa-chess-knight text-redteam mr-2 mt-0.5"></i> Simulated advanced cyber attacks to assess and improve organizational security posture.</li>
+                <li class="flex items-start"><i class="fas fa-chess-knight text-redteam mr-2 mt-0.5"></i> Performed reconnaissance and vulnerability scanning to uncover potential entry points.</li>
+                <li class="flex items-start"><i class="fas fa-chess-knight text-redteam mr-2 mt-0.5"></i> Collaborated with security teams to develop and implement remediation strategies.</li>
+                <li class="flex items-start"><i class="fas fa-chess-knight text-redteam mr-2 mt-0.5"></i> Created comprehensive reports detailing findings, exploits, and recommendations for mitigation.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Education -->
+  <section id="education" class="py-24 md:py-32">
+    <div class="container mx-auto px-5">
+      <h2 class="text-4xl md:text-6xl font-bold text-center mb-16 md:mb-20 font-heading neon-text text-transparent bg-clip-text bg-gradient-to-r from-redteam to-neon fade-in">
+        INTEL DOSSIER
+      </h2>
+      <div class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+        <div class="glass p-8 rounded-2xl border border-redteam/30 text-center card-3d fade-in">
+          <div class="w-16 h-16 mx-auto mb-5 rounded-full bg-gradient-to-br from-redteam to-neon flex items-center justify-center shadow-lg">
+            <i class="fas fa-graduation-cap text-2xl text-white"></i>
+          </div>
+          <h3 class="text-lg md:text-xl font-bold text-redteam mb-1">2021–2022</h3>
+          <p class="text-base md:text-lg text-neon">Bangabandhu Academy</p>
+          <p class="text-sm text-gray-400">SSC – Science</p>
+        </div>
+        <div class="glass p-8 rounded-2xl border border-redteam/30 text-center card-3d fade-in">
+          <div class="w-16 h-16 mx-auto mb-5 rounded-full bg-gradient-to-br from-neon to-redteam flex items-center justify-center shadow-lg">
+            <i class="fas fa-university text-2xl text-white"></i>
+          </div>
+          <h3 class="text-lg md:text-xl font-bold text-redteam mb-1">2023–Present</h3>
+          <p class="text-base md:text-lg text-neon">Pabna Textile Engineering Institute</p>
+          <p class="text-sm text-gray-400">Diploma in Textile Engineering</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Dark mode toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark');
-            themeToggle.innerHTML = document.body.classList.contains('dark')
-                ? '<i class="fas fa-sun"></i>'
-                : '<i class="fas fa-moon"></i>';
+  <!-- Certifications -->
+  <section id="certifications" class="py-24 md:py-32 bg-gradient-to-b from-transparent to-redteam/5">
+    <div class="container mx-auto px-5">
+      <h2 class="text-4xl md:text-6xl font-bold text-center mb-16 md:mb-20 font-heading neon-text text-transparent bg-clip-text bg-gradient-to-r from-neon to-redteam fade-in">
+        CREDENTIALS VERIFIED
+      </h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div class="glass p-5 rounded-2xl border border-redteam/30 text-center card-3d fade-in">
+          <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-gradient-to-br from-redteam to-neon flex items-center justify-center shadow-md">
+            <i class="fas fa-certificate text-xl text-white"></i>
+          </div>
+          <h3 class="font-bold text-cyan-400 text-xs md:text-sm">Ethical Hacking For Professionals</h3>
+          <p class="text-xs text-gray-400">Byte Capsule • 2024-06</p>
+        </div>
+        <div class="glass p-5 rounded-2xl border border-redteam/30 text-center card-3d fade-in">
+          <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-gradient-to-br from-neon to-redteam flex items-center justify-center shadow-md">
+            <i class="fas fa-shield-alt text-xl text-white"></i>
+          </div>
+          <h3 class="font-bold text-cyan-400 text-xs md:text-sm">Professional SOC Certification Course</h3>
+          <p class="text-xs text-gray-400">Byte Capsule • 2024-07</p>
+        </div>
+        <div class="glass p-5 rounded-2xl border border-redteam/30 text-center card-3d fade-in">
+          <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-gradient-to-br from-redteam to-purple-600 flex items-center justify-center shadow-md">
+            <i class="fas fa-brain text-xl text-white"></i>
+          </div>
+          <h3 class="font-bold text-cyan-400 text-xs md:text-sm">AI for Beginners</h3>
+          <p class="text-xs text-gray-400">HP LIFE • 2025-02</p>
+        </div>
+        <div class="glass p-5 rounded-2xl border border-redteam/30 text-center card-3d fade-in">
+          <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-gradient-to-br from-neon to-cyan-600 flex items-center justify-center shadow-md">
+            <i class="fas fa-shield-alt text-xl text-white"></i>
+          </div>
+          <h3 class="font-bold text-cyan-400 text-xs md:text-sm">Introduction to Cybersecurity Awareness</h3>
+          <p class="text-xs text-gray-400">HP LIFE • 2025-02</p>
+        </div>
+        <div class="glass p-5 rounded-2xl border border-redteam/30 text-center card-3d fade-in">
+          <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-gradient-to-br from-redteam to-pink-600 flex items-center justify-center shadow-md">
+            <i class="fas fa-scroll text-xl text-white"></i>
+          </div>
+          <h3 class="font-bold text-cyan-400 text-xs md:text-sm">Generative AI Mastermind</h3>
+          <p class="text-xs text-gray-400">Outskill • 2024-09</p>
+        </div>
+        <div class="glass p-5 rounded-2xl border border-redteam/30 text-center card-3d fade-in">
+          <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-gradient-to-br from-neon to-redteam flex items-center justify-center shadow-md">
+            <i class="fas fa-bug text-xl text-white"></i>
+          </div>
+          <h3 class="font-bold text-cyan-400 text-xs md:text-sm">Professional Bug Hunting & Advanced Web App Security</h3>
+          <p class="text-xs text-gray-400">Byte Capsule • 2025-09</p>
+        </div>
+        <div class="glass p-5 rounded-2xl border border-redteam/30 text-center card-3d fade-in">
+          <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-gradient-to-br from-redteam to-cyan-600 flex items-center justify-center shadow-md">
+            <i class="fas fa-file-alt text-xl text-white"></i>
+          </div>
+          <h3 class="font-bold text-cyan-400 text-xs md:text-sm">Resume Writing and Job Interviewing</h3>
+          <p class="text-xs text-gray-400">HP LIFE • 2025-02</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects - 9 Total -->
+  <section id="projects" class="py-24 md:py-32">
+    <div class="container mx-auto px-5">
+      <h2 class="text-4xl md:text-6xl font-bold text-center mb-16 md:mb-20 font-heading neon-text text-transparent bg-clip-text bg-gradient-to-r from-redteam to-neon fade-in">
+        OPS LOG
+      </h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <!-- Project 1 -->
+        <div class="glass rounded-2xl overflow-hidden border border-redteam/30 card-3d fade-in">
+          <img src="https://via.placeholder.com/600x400/0a0a0a/00ffff?text=DARKNESS+RECON" alt="darkness_recon" class="project-thumb w-full h-44 object-cover cursor-pointer" loading="lazy">
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-cyan-400">darkness_recon</h3>
+            <p class="mt-1 text-gray-400 text-xs">Advanced reconnaissance automation tool built in Shell for efficient OSINT and target profiling in red team operations.</p>
+            <a href="https://github.com/muhammad-khalid-bin-walid/darkness_recon" target="_blank" class="inline-block mt-3 text-redteam hover:underline text-xs">ACCESS REPO</a>
+          </div>
+        </div>
+        <!-- Project 2 -->
+        <div class="glass rounded-2xl overflow-hidden border border-redteam/30 card-3d fade-in">
+          <img src="https://via.placeholder.com/600x400/0a0a0a/ff0044?text=NUCLEI+TEMPLATES" alt="Custom Nuclei Templates" class="project-thumb w-full h-44 object-cover cursor-pointer" loading="lazy">
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-cyan-400">Custom Nuclei Templates</h3>
+            <p class="mt-1 text-gray-400 text-xs">Handcrafted vulnerability detection templates for Nuclei scanner to identify critical misconfigurations and zero-days.</p>
+            <a href="https://github.com/muhammad-khalid-bin-walid/Custom_Templates_For_Nuceli" target="_blank" class="inline-block mt-3 text-redteam hover:underline text-xs">ACCESS REPO</a>
+          </div>
+        </div>
+        <!-- Project 3 -->
+        <div class="glass rounded-2xl overflow-hidden border border-redteam/30 card-3d fade-in">
+          <img src="https://via.placeholder.com/600x400/0a0a0a/00ff9d?text=KALI+UPDATER" alt="Kali Updater" class="project-thumb w-full h-44 object-cover cursor-pointer" loading="lazy">
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-cyan-400">Kali Linux Full Updater</h3>
+            <p class="mt-1 text-gray-400 text-xs">One-click Shell script to update and upgrade all pentesting tools and dependencies on Kali Linux systems.</p>
+            <a href="https://github.com/muhammad-khalid-bin-walid/Updater-for-all-applications-Kali-Linux" target="_blank" class="inline-block mt-3 text-redteam hover:underline text-xs">ACCESS REPO</a>
+          </div>
+        </div>
+        <!-- Project 4 -->
+        <div class="glass rounded-2xl overflow-hidden border border-redteam/30 card-3d fade-in">
+          <img src="https://via.placeholder.com/600x400/0a0a0a/00ff00?text=EXPLOIT+DB" alt="Exploit DB" class="project-thumb w-full h-44 object-cover cursor-pointer" loading="lazy">
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-cyan-400">Local Exploit DB</h3>
+            <p class="mt-1 text-gray-400 text-xs">Custom offline exploit database with search and categorization for rapid exploit retrieval during engagements.</p>
+            <a href="#" target="_blank" class="inline-block mt-3 text-redteam hover:underline text-xs">ACCESS REPO</a>
+          </div>
+        </div>
+        <!-- Project 5 -->
+        <div class="glass rounded-2xl overflow-hidden border border-redteam/30 card-3d fade-in">
+          <img src="https://via.placeholder.com/600x400/0a0a0a/ffaa00?text=PHISHING+TOOL" alt="Phishing Tool" class="project-thumb w-full h-44 object-cover cursor-pointer" loading="lazy">
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-cyan-400">Social Engineering Toolkit</h3>
+            <p class="mt-1 text-gray-400 text-xs">Custom phishing framework with template generation, email spoofing, and payload delivery.</p>
+            <a href="#" target="_blank" class="inline-block mt-3 text-redteam hover:underline text-xs">ACCESS REPO</a>
+          </div>
+        </div>
+        <!-- Project 6 -->
+        <div class="glass rounded-2xl overflow-hidden border border-redteam/30 card-3d fade-in">
+          <img src="https://via.placeholder.com/600x400/0a0a0a/aa00ff?text=NETWORK+SCANNER" alt="Network Scanner" class="project-thumb w-full h-44 object-cover cursor-pointer" loading="lazy">
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-cyan-400">Advanced Network Scanner</h3>
+            <p class="mt-1 text-gray-400 text-xs">Multi-threaded Python scanner with service enumeration, OS detection, and automated vulnerability checks.</p>
+            <a href="#" target="_blank" class="inline-block mt-3 text-redteam hover:underline text-xs">ACCESS REPO</a>
+          </div>
+        </div>
+        <!-- Project 7 -->
+        <div class="glass rounded-2xl overflow-hidden border border-redteam/30 card-3d fade-in">
+          <img src="https://via.placeholder.com/600x400/0a0a0a/00aaff?text=PASSWORD+CRACKER" alt="Password Cracker" class="project-thumb w-full h-44 object-cover cursor-pointer" loading="lazy">
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-cyan-400">Hybrid Password Cracker</h3>
+            <p class="mt-1 text-gray-400 text-xs">Combines dictionary, brute-force, and mask attacks with GPU acceleration support.</p>
+            <a href="#" target="_blank" class="inline-block mt-3 text-redteam hover:underline text-xs">ACCESS REPO</a>
+          </div>
+        </div>
+        <!-- Project 8 -->
+        <div class="glass rounded-2xl overflow-hidden border border-redteam/30 card-3d fade-in">
+          <img src="https://via.placeholder.com/600x400/0a0a0a/ff00aa?text=WEB+VULN+SCANNER" alt="Web Vuln Scanner" class="project-thumb w-full h-44 object-cover cursor-pointer" loading="lazy">
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-cyan-400">Web Application Scanner</h3>
+            <p class="mt-1 text-gray-400 text-xs">Automated scanner for XSS, SQLi, LFI, RCE with custom payload injection and evasion techniques.</p>
+            <a href="#" target="_blank" class="inline-block mt-3 text-redteam hover:underline text-xs">ACCESS REPO</a>
+          </div>
+        </div>
+        <!-- Project 9 -->
+        <div class="glass rounded-2xl overflow-hidden border border-redteam/30 card-3d fade-in">
+          <img src="https://via.placeholder.com/600x400/0a0a0a/aaff00?text=REPORT+GENERATOR" alt="Report Generator" class="project-thumb w-full h-44 object-cover cursor-pointer" loading="lazy">
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-cyan-400">Pentest Report Generator</h3>
+            <p class="mt-1 text-gray-400 text-xs">Automated report creation with executive summary, technical findings, and remediation tracking.</p>
+            <a href="#" target="_blank" class="inline-block mt-3 text-redteam hover:underline text-xs">ACCESS REPO</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-24 md:py-32 bg-gradient-to-b from-transparent to-redteam/5">
+    <div class="container mx-auto px-5">
+      <h2 class="text-4xl md:text-6xl font-bold text-center mb-12 font-heading neon-text text-transparent bg-clip-text bg-gradient-to-r from-neon to-redteam fade-in">CORE COMPETENCIES</h2>
+
+      <p class="max-w-3xl mx-auto text-center text-gray-300 mb-10">A concise overview of technical strengths, tooling, methodologies and operational capabilities. Click any card for a quick glance.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <!-- Technical Strategy Card -->
+        <div tabindex="0" class="glass p-6 rounded-2xl hover:scale-105 transition-transform duration-200 card-3d">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-redteam to-neon flex items-center justify-center text-black font-bold"><i class="fas fa-bullseye"></i></div>
+            <div>
+              <h3 class="text-lg font-bold">Strategic Competencies</h3>
+              <div class="text-sm text-gray-400">Security strategy, frameworks and program-level guidance.</div>
+            </div>
+          </div>
+          <ul class="mt-4 space-y-2 text-sm text-gray-200">
+            <li class="flex justify-between"><span>Cybersecurity Strategy</span><span class="font-bold">Advanced</span></li>
+            <li class="flex justify-between"><span>MITRE ATT&CK</span><span class="font-bold">Advanced</span></li>
+            <li class="flex justify-between"><span>OWASP Top 10</span><span class="font-bold">Advanced</span></li>
+            <li class="flex justify-between"><span>PTES / OSCP Methodology</span><span class="font-bold">Advanced</span></li>
+            <li class="flex justify-between"><span>NIST CSF</span><span class="font-bold">Intermediate</span></li>
+          </ul>
+        </div>
+
+        <!-- Tools & Stacks Card -->
+        <div tabindex="0" class="glass p-6 rounded-2xl hover:scale-105 transition-transform duration-200 card-3d">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-neon to-cyber flex items-center justify-center text-black font-bold"><i class="fas fa-tools"></i></div>
+            <div>
+              <h3 class="text-lg font-bold">Tools & Technology</h3>
+              <div class="text-sm text-gray-400">Offensive tooling, network & cloud tooling expertise.</div>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <!-- Progress row helper -->
+            <div>
+              <div class="flex justify-between text-sm text-gray-300 mb-1"> <span>Metasploit</span> <span class="font-bold">92%</span></div>
+              <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-target="92">
+                <div class="progress-fill bg-redteam" style="width:0%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm text-gray-300 mb-1"> <span>Burp Suite</span> <span class="font-bold">92%</span></div>
+              <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-target="92">
+                <div class="progress-fill bg-neon" style="width:0%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm text-gray-300 mb-1"> <span>Nmap</span> <span class="font-bold">90%</span></div>
+              <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-target="90">
+                <div class="progress-fill bg-cyber" style="width:0%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm text-gray-300 mb-1"> <span>Hashcat</span> <span class="font-bold">88%</span></div>
+              <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-target="88">
+                <div class="progress-fill bg-redteam" style="width:0%"></div>
+              </div>
+            </div>
+            <div class="text-sm text-gray-400 mt-3">Full tools list available in the Skills matrix below.</div>
+          </div>
+        </div>
+
+        <!-- Programming & Cloud Card -->
+        <div tabindex="0" class="glass p-6 rounded-2xl hover:scale-105 transition-transform duration-200 card-3d">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-cyber to-neon flex items-center justify-center text-black font-bold"><i class="fas fa-code"></i></div>
+            <div>
+              <h3 class="text-lg font-bold">Programming & Cloud</h3>
+              <div class="text-sm text-gray-400">Scripting, languages and cloud security knowledge.</div>
+            </div>
+          </div>
+          <ul class="mt-3 space-y-2 text-sm text-gray-200">
+            <li class="flex justify-between"><span>Python</span><span class="font-bold">Advanced</span></li>
+            <li class="flex justify-between"><span>Bash / Shell</span><span class="font-bold">Advanced</span></li>
+            <li class="flex justify-between"><span>JavaScript (Client)</span><span class="font-bold">Intermediate</span></li>
+            <li class="flex justify-between"><span>SQL</span><span class="font-bold">Advanced</span></li>
+            <li class="flex justify-between"><span>AWS Security</span><span class="font-bold">Intermediate</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Detailed matrix below -->
+      <div class="mt-10 max-w-6xl mx-auto grid gap-6 md:grid-cols-2">
+        <div tabindex="0" class="glass p-6 rounded-2xl">
+          <h4 class="text-lg font-bold text-neon mb-4">Red Team Techniques & SOC Awareness</h4>
+          <div class="grid grid-cols-1 gap-3 text-sm text-gray-200">
+            <div class="flex justify-between"><span>Phishing (Spear)</span><span class="font-bold">Advanced</span></div>
+            <div class="flex justify-between"><span>Initial Access</span><span class="font-bold">Advanced</span></div>
+            <div class="flex justify-between"><span>Credential Access</span><span class="font-bold">Advanced</span></div>
+            <div class="flex justify-between"><span>Lateral Movement</span><span class="font-bold">Intermediate</span></div>
+            <div class="flex justify-between"><span>Defense Evasion</span><span class="font-bold">Intermediate</span></div>
+            <div class="flex justify-between"><span>SIEM / Detection (Wazuh/ELK)</span><span class="font-bold">Intermediate</span></div>
+          </div>
+        </div>
+
+        <div tabindex="0" class="glass p-6 rounded-2xl">
+          <h4 class="text-lg font-bold text-neon mb-4">Networking, Systems & Methodologies</h4>
+          <div class="grid grid-cols-1 gap-3 text-sm text-gray-200">
+            <div class="flex justify-between"><span>TCP/IP, DNS, HTTP(S)</span><span class="font-bold">Advanced</span></div>
+            <div class="flex justify-between"><span>Active Directory</span><span class="font-bold">Intermediate</span></div>
+            <div class="flex justify-between"><span>Linux / Windows Escalation</span><span class="font-bold">Advanced</span></div>
+            <div class="flex justify-between"><span>OSCP / PTES</span><span class="font-bold">Advanced</span></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Comprehensive Skills Grid -->
+      <div class="mt-10 max-w-6xl mx-auto">
+        <div class="text-center mb-4">
+          <input id="skills-search" class="skills-search p-3 bg-black/50 border border-gray-700 rounded-lg focus:border-neon outline-none w-full" placeholder="Search skills (type and press Enter to filter)" aria-label="Search skills" />
+        </div>
+        <div class="skills-controls" role="toolbar" aria-label="Filter skills">
+          <button class="skills-filter" data-filter="all" aria-pressed="true">All</button>
+          <button class="skills-filter" data-filter="offensive" aria-pressed="false">Offensive</button>
+          <button class="skills-filter" data-filter="web" aria-pressed="false">Web</button>
+          <button class="skills-filter" data-filter="tools" aria-pressed="false">Tools</button>
+          <button class="skills-filter" data-filter="cloud" aria-pressed="false">Cloud</button>
+          <button class="skills-filter" data-filter="ad" aria-pressed="false">Active Directory</button>
+          <button class="skills-filter" data-filter="forensics" aria-pressed="false">Forensics</button>
+          <button class="skills-filter" data-filter="detection" aria-pressed="false">Detection/IR</button>
+          <button class="skills-filter" data-filter="network" aria-pressed="false">Network</button>
+          <button class="skills-filter" data-filter="programming" aria-pressed="false">Programming</button>
+        </div>
+
+        <div id="skill-grid" class="skill-grid mt-4" role="list" aria-live="polite">
+          <!-- badges: click to copy -->
+          <!-- Offensive / Red Team -->
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="offensive">Penetration Testing</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="offensive">Red Teaming</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="offensive">Ethical Hacking</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="offensive">Vulnerability Assessment</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="offensive">Adversary Simulation</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="offensive">Purple Teaming</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="offensive">Phishing (Spear)</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="offensive">Credential Harvesting</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="offensive">Password Cracking</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="offensive">Brute Force Attacks</button>
+
+          <!-- Web Security -->
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="web">Web Application Security</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="web">OWASP Top 10</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="web">SQL Injection</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="web">Cross-Site Scripting (XSS)</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="web">CSRF</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="web">SSRF</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="web">Command Injection</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="web">File Inclusion (LFI/RFI)</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="web">XML External Entities (XXE)</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="web">IDOR</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="web">Broken Access Control</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="web">API Security Testing</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="web">JWT Attacks</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="web">CMS Exploitation (WordPress, Joomla)</button>
+
+          <!-- Tools -->
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="tools">Metasploit Framework</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="tools">Burp Suite</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="tools">Nmap</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="tools">Wireshark</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="tools">Hashcat</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="tools">SQLMap</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="tools">Aircrack-ng</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="tools">Snort</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="tools">Nessus</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="tools">John the Ripper</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="tools">Hydra</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="tools">Gobuster</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="tools">Dirsearch</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="tools">Nikto</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="tools">Netcat</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="tools">Socat</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="tools">BloodHound</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="tools">SharpHound</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="tools">Mimikatz</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="tools">Cobalt Strike (emulation)</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="tools">PowerShell Empire (emulation)</button>
+
+          <!-- Scripting / Programming -->
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="programming">Python Scripting</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="programming">Bash Scripting</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="programming">PowerShell</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="programming">Reverse Engineering (basic)</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="programming">Malware Analysis (static)</button>
+
+          <!-- AD / Attacks -->
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="ad">Active Directory Attacks</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="ad">Kerberoasting</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="ad">Pass-the-Hash</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="ad">Pass-the-Ticket</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="ad">Golden Ticket Attack</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="ad">Silver Ticket Attack</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="ad">DCSync Attack</button>
+
+          <!-- Tunneling / Pivoting / Networking -->
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="network">Lateral Movement</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="network">Pivoting</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="network">SSH Tunneling</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="network">DNS Tunneling</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="network">HTTP/S Tunneling</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="network">Port Scanning</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="network">Service Fingerprinting</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="network">Subdomain Enumeration</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="network">Directory Bruteforcing</button>
+
+          <!-- Wireless -->
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="network">Wireless Security Testing</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="network">WPA2 Cracking</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="network">Deauthentication Attacks</button>
+
+          <!-- Cloud -->
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="cloud">AWS Security</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="cloud">Azure Security</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="cloud">Cloud Misconfiguration Testing</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="cloud">S3 Bucket Enumeration</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="cloud">IAM Privilege Escalation</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="cloud">Docker Security</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="cloud">Container Escape (conceptual)</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="cloud">CI/CD Pipeline Security</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="cloud">GitHub Security</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="cloud">Secrets Detection</button>
+
+          <!-- Detection / IR / Forensics -->
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="detection">Threat Intelligence</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="detection">IoC Analysis</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="detection">TTP Mapping</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="detection">SOC Operations</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="detection">SIEM (Wazuh, ELK)</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="detection">Sysmon Log Analysis</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="detection">Windows Event Log Analysis</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="detection">EDR Concepts</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="detection">Threat Hunting</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="detection">Incident Response (DFIR basics)</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="detection">Digital Forensics (basic)</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="detection">Memory Forensics (Volatility basics)</button>
+
+          <!-- Misc -->
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="misc">Report Writing</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="misc">CVSS Scoring</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="misc">Remediation Guidance</button>
+          <button role="listitem" tabindex="0" class="skill-badge" data-cats="misc">Buffer Overflow (conceptual)</button>
+        </div>
+
+        <div id="skill-toast" class="toast" role="status" aria-live="polite">Copied</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-24 md:py-32 bg-gradient-to-t from-redteam/20 to-transparent">
+    <div class="container mx-auto px-5">
+      <h2 class="text-4xl md:text-6xl font-bold text-center mb-16 md:mb-20 font-heading neon-text text-transparent bg-clip-text bg-gradient-to-r from-redteam to-neon fade-in">
+        SECURE DROP
+      </h2>
+      <div class="max-w-4xl mx-auto">
+        <div class="glass p-8 md:p-10 rounded-3xl border border-redteam/30 fade-in">
+          <div class="grid md:grid-cols-2 gap-6 mb-8 items-start">
+            <div class="contact-card bg-transparent rounded-lg">
+              <div class="meta">
+                <div class="w-12 h-12 rounded-md bg-gradient-to-br from-redteam to-neon flex items-center justify-center text-black font-bold">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div>
+                  <div class="font-mono text-sm">Phone</div>
+                  <div class="font-mono text-xs text-gray-300">+880 1304635096</div>
+                </div>
+              </div>
+              <div class="ml-auto">
+                <button class="copy-btn" data-copy="+880 1304635096" aria-label="Copy phone">Copy</button>
+              </div>
+            </div>
+
+            <div class="contact-card bg-transparent rounded-lg">
+              <div class="meta">
+                <div class="w-12 h-12 rounded-md bg-gradient-to-br from-neon to-cyber flex items-center justify-center text-black font-bold">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                  <div class="font-mono text-sm">Email</div>
+                  <div class="font-mono text-xs text-gray-300">pentester.walid@gmail.com</div>
+                </div>
+              </div>
+              <div class="ml-auto">
+                <button class="copy-btn" data-copy="pentester.walid@gmail.com" aria-label="Copy email">Copy</button>
+              </div>
+            </div>
+
+            <div class="contact-card bg-transparent rounded-lg">
+              <div class="meta">
+                <div class="w-12 h-12 rounded-md bg-gradient-to-br from-cyber to-neon flex items-center justify-center text-black font-bold">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <div class="font-mono text-sm">Location</div>
+                  <div class="font-mono text-xs text-gray-300">Pabna Sadar, Pabna, Bangladesh</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-card bg-transparent rounded-lg">
+              <div class="meta">
+                <div class="w-12 h-12 rounded-md bg-gradient-to-br from-redteam to-pink-500 flex items-center justify-center text-black font-bold">
+                  <i class="fab fa-linkedin"></i>
+                </div>
+                <div>
+                  <div class="font-mono text-sm">LinkedIn</div>
+                  <a href="https://www.linkedin.com/in/muhammad-khalid-bin-walid-/" target="_blank" class="font-mono text-xs hover:text-neon">linkedin.com/in/muhammad-khalid-bin-walid-/</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <form id="contact-form" class="contact-form" aria-label="Contact form">
+            <div class="form-row">
+              <label for="cf-name">CALLSIGN</label>
+              <input id="cf-name" name="name" type="text" required placeholder="Your callsign" />
+            </div>
+            <div class="form-row">
+              <label for="cf-email">CHANNEL (Email)</label>
+              <input id="cf-email" name="email" type="email" required placeholder="you@domain.tld" />
+            </div>
+            <div class="form-row">
+              <label for="cf-msg">PAYLOAD</label>
+              <textarea id="cf-msg" name="message" rows="4" required placeholder="Brief message or scope"></textarea>
+            </div>
+
+            <div class="contact-actions">
+              <button id="contact-send" type="submit" class="resume-btn">TRANSMIT</button>
+              <a id="download-resume" class="resume-btn" href="https://drive.google.com/file/d/1wgwtoQK4bOj0g5begWJ_z1fVk62fRFQN/view?usp=sharing" target="_blank">DOWNLOAD RESUME</a>
+              <button id="contact-clear" type="button" class="copy-btn">Clear</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 border-t border-redteam/30">
+    <div class="container mx-auto px-5 text-center">
+      <p class="font-mono text-xs text-gray-500">© 2025 MD.Khalid Bin Walid Hasan Sikto. All rights reserved.</p>
+      <a href="https://drive.google.com/file/d/1wgwtoQK4bOj0g5begWJ_z1fVk62fRFQN/view?usp=sharing" target="_blank" class="inline-flex items-center mt-5 px-5 py-2 bg-redteam/50 rounded-full hover:bg-redteam/70 transition font-mono text-xs card-3d">
+        <i class="fas fa-download mr-2"></i> DOWNLOAD RESUME
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Guarded Theme Toggle
+    (function() {
+      const toggle = document.getElementById('theme-toggle');
+      const body = document.body;
+      let icon = null;
+      try {
+        if (toggle) icon = toggle.querySelector('i');
+      } catch (e) { icon = null; }
+
+      let savedTheme = null;
+      try { savedTheme = localStorage.theme; } catch (e) { savedTheme = null; }
+
+      if (savedTheme === 'light') {
+        body.classList.add('light');
+        if (icon) icon.classList.replace('fa-moon', 'fa-sun');
+      }
+
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          body.classList.toggle('light');
+          const isLight = body.classList.contains('light');
+          if (icon) {
+            icon.classList.toggle('fa-moon', !isLight);
+            icon.classList.toggle('fa-sun', isLight);
+          }
+          try { localStorage.theme = isLight ? 'light' : 'dark'; } catch (e) {}
         });
+      }
+    })();
 
-        // Fade-in animation on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver((entries) => {
+    // Mobile Menu (guarded)
+    (function() {
+      const btnOpen = document.getElementById('mobile-menu-btn');
+      const btnClose = document.getElementById('close-menu');
+      const menu = document.getElementById('mobile-menu');
+
+      function openMenu() {
+        if (!menu) return;
+        menu.classList.remove('hidden');
+        menu.classList.add('flex');
+        menu.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenu() {
+        if (!menu) return;
+        menu.classList.add('hidden');
+        menu.classList.remove('flex');
+        menu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      if (btnOpen) btnOpen.addEventListener('click', openMenu);
+      if (btnClose) btnClose.addEventListener('click', closeMenu);
+      document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', closeMenu));
+    })();
+
+    // Fade In (IntersectionObserver guarded)
+    (function() {
+      const els = document.querySelectorAll('.fade-in');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('visible'));
+        return;
+      }
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+      }, { threshold: 0.1 });
+      els.forEach(el => observer.observe(el));
+    })();
+
+    // Progress bars: animate fills when visible (guarded)
+    (function() {
+      try {
+        const progressEls = document.querySelectorAll('.progress');
+        if (!progressEls || !progressEls.length) return;
+
+        const animate = (el) => {
+          const target = parseInt(el.getAttribute('data-target') || el.dataset.target || '0', 10) || 0;
+          const fill = el.querySelector('.progress-fill');
+          if (!fill) return;
+          // set initial aria
+          try { el.setAttribute('aria-valuenow', '0'); } catch(e){}
+          // small delay to allow CSS paint
+          requestAnimationFrame(() => {
+            // animate width
+            fill.style.width = target + '%';
+            try { el.setAttribute('aria-valuenow', String(target)); } catch(e){}
+          });
+        };
+
+        if ('IntersectionObserver' in window) {
+          const obs = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+              if (entry.isIntersecting) {
+                animate(entry.target);
+                observer.unobserve(entry.target);
+              }
             });
-        }, { threshold: 0.1 });
+          }, { threshold: 0.25 });
+          progressEls.forEach(p => obs.observe(p));
+        } else {
+          // fallback: animate immediately
+          progressEls.forEach(animate);
+        }
+      } catch (err) { console.warn('Progress animation failed', err); }
+    })();
 
-        fadeElements.forEach(element => observer.observe(element));
+    // Skills grid: filtering, searching, copy-to-clipboard
+    (function() {
+      try {
+        const grid = document.getElementById('skill-grid');
+        const filters = Array.from(document.querySelectorAll('.skills-filter'));
+        const search = document.getElementById('skills-search');
+        const toast = document.getElementById('skill-toast');
 
-        // Edit project functionality
-        const modal = document.getElementById('edit-modal');
-        const editButtons = document.querySelectorAll('.edit-project');
-        const cancelButton = document.getElementById('cancel-edit');
-        const saveButton = document.getElementById('save-edit');
-        const editTitle = document.getElementById('edit-title');
-        const editDescription = document.getElementById('edit-description');
-        const editImage = document.getElementById('edit-image');
-        let currentProjectId = null;
+        if (!grid) return;
 
-        editButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                currentProjectId = button.getAttribute('data-project-id');
-                const projectCard = document.querySelector(`.project-card[data-project-id="${currentProjectId}"]`);
-                const title = projectCard.querySelector('.project-title').textContent;
-                const description = projectCard.querySelector('.project-description').textContent;
-                const image = projectCard.querySelector('img').src;
+        const badges = Array.from(grid.querySelectorAll('.skill-badge'));
 
-                editTitle.value = title;
-                editDescription.value = description;
-                editImage.value = image;
+        function showToast(msg) {
+          if (!toast) return;
+          toast.textContent = msg;
+          toast.style.display = 'block';
+          setTimeout(() => { toast.style.display = 'none'; }, 1400);
+        }
 
-                modal.style.display = 'flex';
-            });
+        // Copy on click or Enter
+        badges.forEach(b => {
+          b.addEventListener('click', () => {
+            const text = b.textContent.trim();
+            navigator.clipboard?.writeText(text).then(() => showToast('Copied: ' + text), () => showToast('Copy failed'));
+          });
+          b.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); b.click(); } });
         });
 
-        cancelButton.addEventListener('click', () => {
-            modal.style.display = 'none';
+        // Filter logic
+        function applyFilter(cat, query) {
+          badges.forEach(b => {
+            const cats = (b.getAttribute('data-cats') || '').split(',').map(s=>s.trim());
+            const text = b.textContent.toLowerCase();
+            const matchesCat = (cat === 'all') || cats.includes(cat);
+            const matchesQuery = !query || text.includes(query.toLowerCase());
+            if (matchesCat && matchesQuery) { b.style.display = ''; } else { b.style.display = 'none'; }
+          });
+        }
+
+        // Filter buttons
+        filters.forEach(f => {
+          f.addEventListener('click', () => {
+            filters.forEach(ff => ff.setAttribute('aria-pressed', 'false'));
+            f.setAttribute('aria-pressed', 'true');
+            const cat = f.getAttribute('data-filter') || 'all';
+            applyFilter(cat, search.value);
+          });
         });
 
-        saveButton.addEventListener('click', () => {
-            if (currentProjectId) {
-                const projectCard = document.querySelector(`.project-card[data-project-id="${currentProjectId}"]`);
-                projectCard.querySelector('.project-title').textContent = editTitle.value;
-                projectCard.querySelector('.project-description').textContent = editDescription.value;
-                projectCard.querySelector('img').src = editImage.value || 'https://via.placeholder.com/300x200';
-                modal.style.display = 'none';
-            }
+        // Search
+        if (search) {
+          search.addEventListener('input', () => {
+            const active = document.querySelector('.skills-filter[aria-pressed="true"]')?.getAttribute('data-filter') || 'all';
+            applyFilter(active, search.value);
+          });
+          search.addEventListener('keydown', (e) => { if (e.key === 'Escape') { search.value = ''; applyFilter('all', ''); } });
+        }
+
+      } catch (err) { console.warn('Skills grid failed', err); }
+    })();
+
+    // Contact interactions: copy buttons, form submit, clear
+    (function() {
+      try {
+        const copyBtns = Array.from(document.querySelectorAll('.copy-btn'));
+        const toast = document.getElementById('skill-toast') || document.getElementById('contact-toast');
+        const globalToast = toast || document.getElementById('skill-toast');
+
+        function showGlobal(msg) {
+          if (!globalToast) return;
+          globalToast.textContent = msg;
+          globalToast.style.display = 'block';
+          setTimeout(() => { globalToast.style.display = 'none'; }, 1400);
+        }
+
+        copyBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const txt = btn.getAttribute('data-copy');
+            if (!txt) return;
+            navigator.clipboard?.writeText(txt).then(() => showGlobal('Copied: ' + txt), () => showGlobal('Copy failed'));
+          });
         });
 
-        // Close modal when clicking outside
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-    </script>
+        // Contact form handling
+        const form = document.getElementById('contact-form');
+        const clearBtn = document.getElementById('contact-clear');
+        if (clearBtn) clearBtn.addEventListener('click', () => { if (!form) return; form.reset(); showGlobal('Cleared'); });
+
+        if (form) {
+          form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = form.querySelector('[name="name"]')?.value || '';
+            const email = form.querySelector('[name="email"]')?.value || '';
+            const message = form.querySelector('[name="message"]')?.value || '';
+            // Minimal validation
+            if (!name || !email || !message) { showGlobal('Please fill required fields'); return; }
+            // Compose mailto as fallback
+            const subject = encodeURIComponent('Contact from ' + name);
+            const body = encodeURIComponent(message + '\n\nFrom: ' + name + ' (' + email + ')');
+            // Try sending via mailto (user will choose client) and give feedback
+            window.location.href = 'mailto:' + encodeURIComponent('pentester.walid@gmail.com') + '?subject=' + subject + '&body=' + body;
+            showGlobal('Opening mail client...');
+            form.reset();
+          });
+        }
+      } catch (err) { console.warn('Contact interactions failed', err); }
+    })();
+  </script>
 </body>
 </html>
